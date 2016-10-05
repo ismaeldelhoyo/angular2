@@ -1,0 +1,1 @@
+[Hola Mundo en Angular 2](http://academia-binaria.com/hola-mundo-en-angular-2/)
