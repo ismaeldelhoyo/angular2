@@ -1,0 +1,25 @@
+<p>
+  nuevo works!
+</p>
+<label for="">Formulario</label>
+<input type="text" ngModel="Nuevo Movimiento">
+<label for="">Fecha</label>
+<input type="date" [ngModel]="movimiento.fecha">
+<label for="">Importe</label>
+<input type="number" [(ngModel)]="movimiento.importe">
+
+<div *ngFor="let tipo of tipos">
+  <input [attr.id]="tipo" name="tiposGroup" [(ngModel)]="movimiento.tipo" [value]="tipo" type="radio" required>
+  <!--para enlazar el texto al botón se usa el atributo for-->
+  <label [attr.for]="tipo">{{location}}</label>
+</div>
+<label for="">Categoría</label>
+<select name="location" [(ngModel)]="movimiento.categoria">
+    <option 
+        *ngFor="let categoria of categorias"
+        [value]="categoria">  
+    </option>
+</select> 
+
+<button (click)="guardarMovimiento()">Guardar</button>
+{{ movimiento | json}}
