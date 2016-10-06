@@ -1,13 +1,9 @@
-<p>
-  nuevo works!
-</p>
 <label for="">Formulario</label>
 <input type="text" ngModel="Nuevo Movimiento">
 <label for="">Fecha</label>
 <input type="text" [ngModel]="movimiento.fecha">
 <label for="">Importe</label>
 <input type="number" [(ngModel)]="movimiento.importe">
-
 <div *ngFor="let tipo of tipos">
   <!--for es un atributo-->
   <label [attr.for]="tipo.id" >
