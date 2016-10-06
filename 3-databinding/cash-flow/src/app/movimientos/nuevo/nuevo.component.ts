@@ -6,17 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nuevo.component.css']
 })
 export class NuevoComponent implements OnInit {
-
+  tipos: string[] = ["Ingreso", "Gasto"];
+  categorias: string[] = ["Nómina", "Venta", "Intereses"];
   movimiento = {
     fecha: new Date(Date.now()),
     importe: 0,
     tipo: this.tipos[0]
   }
-  tipos: string[] = ["Ingreso", "Gasto"];
-  categorias: string[] = ["Nómina", "Venta", "Intereses"];
-  
+
+
   constructor() { }
-  
+
   ngOnInit() {
   }
 

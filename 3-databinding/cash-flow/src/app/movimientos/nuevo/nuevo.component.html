@@ -4,22 +4,26 @@
 <label for="">Formulario</label>
 <input type="text" ngModel="Nuevo Movimiento">
 <label for="">Fecha</label>
-<input type="date" [ngModel]="movimiento.fecha">
+<input type="text" [ngModel]="movimiento.fecha">
 <label for="">Importe</label>
 <input type="number" [(ngModel)]="movimiento.importe">
 
 <div *ngFor="let tipo of tipos">
   <input [attr.id]="tipo" name="tiposGroup" [(ngModel)]="movimiento.tipo" [value]="tipo" type="radio" required>
   <!--para enlazar el texto al botón se usa el atributo for-->
-  <label [attr.for]="tipo">{{location}}</label>
+  <label [attr.for]="tipo">{{tipo}}</label>
 </div>
 <label for="">Categoría</label>
-<select name="location" [(ngModel)]="movimiento.categoria">
+<select name="categoria" [(ngModel)]="movimiento.categoria">
     <option 
         *ngFor="let categoria of categorias"
-        [value]="categoria">  
+        [value]="categoria"> 
+        {{categoria}} 
     </option>
-</select> 
-
-<button (click)="guardarMovimiento()">Guardar</button>
-{{ movimiento | json}}
+</select>
+<div>
+  <button (click)="guardarMovimiento()">Guardar</button>
+</div>
+<div>
+  {{ movimiento | json}}
+</div>
