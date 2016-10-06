@@ -1,3 +1,4 @@
+import { MaestroModel, MovimientoModel, MaestroTipoModel } from './../datos.model';
 import { DatosService } from './../datos.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nuevo.component.css']
 })
 export class NuevoComponent implements OnInit {
-  tipos: any[] = [];
-  categorias: any[] = [];
-  movimiento: any = {};
+  tipos: MaestroModel[] = [];
+  categorias: MaestroTipoModel[] = [];
+  movimiento: MovimientoModel;
 
   // las dependencias se declaran como parámetros del constructor  
   constructor(private datosService: DatosService) { }
@@ -25,6 +26,6 @@ export class NuevoComponent implements OnInit {
   }
 
   guardarMovimiento() {
-    console.log(this.movimiento);
+    this.datosService.postMovimiento(this.movimiento);
   }
 }
