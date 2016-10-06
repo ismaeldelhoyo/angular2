@@ -9,16 +9,25 @@
 <input type="number" [(ngModel)]="movimiento.importe">
 
 <div *ngFor="let tipo of tipos">
-  <input [attr.id]="tipo" name="tiposGroup" [(ngModel)]="movimiento.tipo" [value]="tipo" type="radio" required>
-  <!--para enlazar el texto al botón se usa el atributo for-->
-  <label [attr.for]="tipo">{{tipo}}</label>
+  <!--for es un atributo-->
+  <label [attr.for]="tipo.id" >
+    <!--id es una propiedad-->
+    <input 
+      [id]="tipo.id" 
+      name="tiposGroup" 
+      [(ngModel)]="movimiento.tipo" 
+      [value]="tipo.id"
+      (ngModelChange)="cambioTipo()" 
+      type="radio">
+      {{ tipo.text }}
+  </label>
 </div>
 <label for="">Categoría</label>
 <select name="categoria" [(ngModel)]="movimiento.categoria">
     <option 
         *ngFor="let categoria of categorias"
-        [value]="categoria"> 
-        {{categoria}} 
+        [value]="categoria.id"> 
+        {{categoria.text}} 
     </option>
 </select>
 <div>
