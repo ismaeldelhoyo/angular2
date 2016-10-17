@@ -1,26 +1,32 @@
-import { MaestroModel, MovimientoModel, MaestroTipoModel } from './../datos.model';
+// import { MaestroModel, MovimientoModel, MaestroTipoModel } from './../datos.model';
 import { DatosService } from './../datos.service';
-import { Component, OnInit } from '@angular/core';
+
+import { Component, OnInit, OnChanges , Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-nuevo',
   templateUrl: './nuevo.component.html',
   styleUrls: ['./nuevo.component.css']
 })
-export class NuevoComponent implements OnInit {
-  tipos: MaestroModel[] = [];
-  categorias: MaestroTipoModel[] = [];
-  movimiento: MovimientoModel;
+export class NuevoComponent implements OnInit, OnChanges {
+  tipos: any[] = [];
+  categorias: any[] = [];
+  // recibe el movimiento para editar
+  @Input() movimiento: any;
+  // emite un evento de guardado
+  @Output() guardar: EventEmitter<any> = new EventEmitter<any>();
 
   // las dependencias se declaran como parámetros del constructor  
   constructor(private datosService: DatosService) { }
 
   ngOnInit() {
     this.tipos = this.datosService.getTipos();
-    this.movimiento = this.datosService.getNuevoMovimiento();
+  }
+  // en cada cambio de alguna propiedad
+  ngOnChanges(changes) {
     this.cambioTipo();
   }
-
+  
   cambioTipo() {
     this.categorias = this.datosService.getCategoriasPorTipo(this.movimiento.tipo);
     // Cambios en el tipo, crean cambios en la categoría
@@ -28,6 +34,6 @@ export class NuevoComponent implements OnInit {
   }
 
   guardarMovimiento() {
-    this.datosService.postMovimiento(this.movimiento);
+    this.guardar.emit(this.movimiento);
   }
 }

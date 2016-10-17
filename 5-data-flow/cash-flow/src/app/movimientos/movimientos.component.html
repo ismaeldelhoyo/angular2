@@ -1,5 +1,6 @@
 <p>
   movimientos works!
 </p>
-<app-nuevo></app-nuevo>
-<app-lista></app-lista>
+<!--[popiedades]="para enviar información a componentes hijos"-->
+<app-nuevo [movimiento]="movimiento" (guardar)="guardarMovimiento()"></app-nuevo>
+<app-lista [movimientos$]="movimientos$"></app-lista>

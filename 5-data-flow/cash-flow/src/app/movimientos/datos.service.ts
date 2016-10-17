@@ -16,16 +16,16 @@ import { Subject } from 'rxjs/Subject';
 export class DatosService {
 
   private tipos: MaestroModel[] = [
-    { id: 1, text: "Ingreso" },
-    { id: 2, text: "Gasto" }];
+    { id: 1, text: 'Ingreso' },
+    { id: 2, text: 'Gasto' }];
   private categoriasTipos: MaestroTipoModel[] = [
-    { id: 1, text: "Nómina", type: 1 },
-    { id: 2, text: "Ventas", type: 1 },
-    { id: 3, text: "Intereses", type: 1 },
-    { id: 4, text: "Hipoteca", type: 2 },
-    { id: 5, text: "Compras", type: 2 },
-    { id: 6, text: "Domicialiaciones", type: 2 },
-    { id: 7, text: "Impuestos", type: 2 }];
+    { id: 1, text: 'Nómina', type: 1 },
+    { id: 2, text: 'Ventas', type: 1 },
+    { id: 3, text: 'Intereses', type: 1 },
+    { id: 4, text: 'Hipoteca', type: 2 },
+    { id: 5, text: 'Compras', type: 2 },
+    { id: 6, text: 'Domicialiaciones', type: 2 },
+    { id: 7, text: 'Impuestos', type: 2 }];
   private movimientos: MovimientoModel[] = [];
   // comunicación de eventos mediante observables
   private movimientos$: Subject<MovimientoModel[]> = new Subject<MovimientoModel[]>();
@@ -49,7 +49,7 @@ export class DatosService {
   }
 
   postMovimiento(movimiento: Movimiento) {
-    var movimientoClone: Movimiento = Object.assign({}, movimiento);
+    let movimientoClone: Movimiento = Object.assign({}, movimiento);
     this.movimientos.push(movimientoClone);
     // genera un nuevo valor en el observable
     this.movimientos$.next(this.movimientos);
