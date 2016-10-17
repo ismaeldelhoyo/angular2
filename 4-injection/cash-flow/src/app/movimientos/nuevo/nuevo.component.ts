@@ -22,7 +22,9 @@ export class NuevoComponent implements OnInit {
   }
 
   cambioTipo() {
-     this.categorias = this.datosService.getCategoriasPorTipo(this.movimiento.tipo);
+    this.categorias = this.datosService.getCategoriasPorTipo(this.movimiento.tipo);
+    // Cambios en el tipo, crean cambios en la categoría
+    this.movimiento.categoria = this.datosService.getCategoriaBase(this.movimiento.tipo);
   }
 
   guardarMovimiento() {

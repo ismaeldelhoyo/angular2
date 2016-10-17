@@ -25,31 +25,32 @@ export class DatosService {
     { id: 4, text: "Hipoteca", type: 2 },
     { id: 5, text: "Compras", type: 2 },
     { id: 6, text: "Domicialiaciones", type: 2 },
-    { id: 7, text: "Impuestos", type: 2 }];  
-  private movimientos: MovimientoModel[] =  [];
-  
+    { id: 7, text: "Impuestos", type: 2 }];
+  private movimientos: MovimientoModel[] = [];
+  // comunicación de eventos mediante observables
   private movimientos$: Subject<MovimientoModel[]> = new Subject<MovimientoModel[]>();
   constructor() { }
 
-  getNuevoMovimiento() : MovimientoModel{
+  getNuevoMovimiento(): MovimientoModel {
     return new Movimiento(
       new Date(Date.now()),
       0,
-      this.tipos[0].id,
-      this.getCategoriasPorTipo(this.tipos[0].id)[0].id
+      this.getTipoBase(),
+      this.getCategoriaBase(this.getTipoBase())
     );
   }
 
-  getTipos() : MaestroModel[] {
+  getTipos(): MaestroModel[] {
     return this.tipos;
-  } 
-  
+  }
+
   getCategoriasPorTipo(tipo): MaestroTipoModel[] {
     return this.categoriasTipos.filter(c => c.type === tipo);
   }
 
   postMovimiento(movimiento: Movimiento) {
-    this.movimientos.push(movimiento);
+    var movimientoClone: Movimiento = Object.assign({}, movimiento);
+    this.movimientos.push(movimientoClone);
     // genera un nuevo valor en el observable
     this.movimientos$.next(this.movimientos);
   }
@@ -57,6 +58,9 @@ export class DatosService {
   getMovimientos$(): Observable<MovimientoModel[]> {
     // se comporta como un observable
     return this.movimientos$.asObservable();
-  }  
+  }
 
+  // funciones auxiliares  
+  private getTipoBase = () => this.tipos[0].id;
+  getCategoriaBase = (tipoId) => this.getCategoriasPorTipo(tipoId)[0].id;
 }
