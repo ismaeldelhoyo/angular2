@@ -1,36 +1,29 @@
-// import { MaestroModel, MovimientoModel, MaestroTipoModel } from './../datos.model';
-import { DatosService } from './../datos.service';
-
-import { Component, OnInit, OnChanges , Input, Output, EventEmitter } from '@angular/core';
+import { MaestroModel, Movimiento, MaestroTipoModel } from './../datos.model';
+import { Component, OnInit,  Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-nuevo',
   templateUrl: './nuevo.component.html',
   styleUrls: ['./nuevo.component.css']
 })
-export class NuevoComponent implements OnInit, OnChanges {
-  tipos: any[] = [];
-  categorias: any[] = [];
-  // recibe el movimiento para editar
-  @Input() movimiento: any;
-  // emite un evento de guardado
-  @Output() guardar: EventEmitter<any> = new EventEmitter<any>();
+export class NuevoComponent implements OnInit {
+  // recibe todso vía propiedades
+  @Input() tipos: MaestroModel[] = [];
+  @Input() categorias: MaestroTipoModel[] = [];
+  @Input() movimiento: Movimiento;
+  // emite un evento de cambio y de guardado
+  @Output() guardar: EventEmitter<Movimiento> = new EventEmitter<Movimiento>();
+  @Output() cambiarTipo: EventEmitter<number> = new EventEmitter<number>();
 
-  // las dependencias se declaran como parámetros del constructor  
-  constructor(private datosService: DatosService) { }
+  // ya no se usa datos service
+  constructor() { }
 
-  ngOnInit() {
-    this.tipos = this.datosService.getTipos();
-  }
-  // en cada cambio de alguna propiedad
-  ngOnChanges(changes) {
-    this.cambioTipo();
-  }
+  ngOnInit() {  }
+  
+  // emisión de eventos para cambios o pedir guardar el movimiento
   
   cambioTipo() {
-    this.categorias = this.datosService.getCategoriasPorTipo(this.movimiento.tipo);
-    // Cambios en el tipo, crean cambios en la categoría
-    this.movimiento.categoria = this.datosService.getCategoriaBase(this.movimiento.tipo);
+    this.cambiarTipo.emit(this.movimiento.tipo);
   }
 
   guardarMovimiento() {

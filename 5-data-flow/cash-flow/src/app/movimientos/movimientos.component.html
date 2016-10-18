@@ -2,5 +2,11 @@
   movimientos works!
 </p>
 <!--[popiedades]="para enviar información a componentes hijos"-->
-<app-nuevo [movimiento]="movimiento" (guardar)="guardarMovimiento()"></app-nuevo>
-<app-lista [movimientos$]="movimientos$"></app-lista>
+<app-nuevo 
+  [tipos]="tipos" 
+  [categorias]="categorias" 
+  [movimiento]="movimiento" 
+  (guardar)="guardarMovimiento()"
+  (cambiarTipo)="cambioTipo()">
+</app-nuevo>
+<app-lista [movimientos]="movimientos"></app-lista>
