@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class HolaAngular2Page {
+export class CashFlowPage {
   navigateTo() {
     return browser.get('/');
   }
