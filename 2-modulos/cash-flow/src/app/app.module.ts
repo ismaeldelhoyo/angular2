@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 // importación del componente raíz, definido en esta misma carpeta
 import { AppComponent } from './app.component';
-// importación de un módulo de funcionalidad
+/** importación de otro módulo de funcionalidad*/ 
 import { MovimientosModule } from './movimientos/movimientos.module'
 // decorador que define un módulo
 @NgModule({
