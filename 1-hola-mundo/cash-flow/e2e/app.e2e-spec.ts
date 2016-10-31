@@ -1,10 +1,10 @@
-import { HolaAngular2Page } from './app.po';
+import { CashFlowPage } from './app.po';
 
-describe('hola-angular-2 App', function() {
-  let page: HolaAngular2Page;
+describe('cash-flow App', function() {
+  let page: CashFlowPage;
 
   beforeEach(() => {
-    page = new HolaAngular2Page();
+    page = new CashFlowPage();
   });
 
   it('should display message saying app works', () => {
