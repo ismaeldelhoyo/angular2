@@ -1,11 +1,11 @@
 # angular2
 Tutorial Angular2 
 
-Código para curos de introducción al desarrollo con Angular 2
+Código para curso de introducción al desarrollo con Angular 2
 
-Documentación en el [blog de Academia Binaria](http://academia-binaria.com/tag/angular2/)
+[Primeras impresiones sobre Angular 2](http://academia-binaria.com/angular2-primeras-impresiones/)
 
-Problema     | Herramienta 
+Situación    | Herramienta 
 ---          | --- 
 Lenguaje     | TypeScript
 Workflow     | Webpack
@@ -15,4 +15,4 @@ Dependencias | npm
 Generador    | **angular-cli**
 
 
-[Primeras impresiones sobre Angular 2](http://academia-binaria.com/angular2-primeras-impresiones/)
+Documentación en el [blog de Academia Binaria](http://academia-binaria.com/tag/angular2/)
