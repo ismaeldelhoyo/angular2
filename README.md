@@ -8,6 +8,8 @@ Código para curso de introducción al desarrollo con Angular 2
 Situación    | Herramienta 
 ---          | --- 
 Lenguaje     | TypeScript
+Tamaño       | Lazy Loading
+Velocidad    | Change / AoT
 Workflow     | Webpack
 Tests        | Karma, Protractor
 Clean Code   | TSlint
