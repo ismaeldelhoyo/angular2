@@ -3,7 +3,7 @@
 Enlace entre plantillas y modelos
 
 ### Guía
-- `nuevo.component.html` : directivas para enlace de datos
-- `nuevo.component.html` : modelo en clase controladora
+- `nuevo.component.html` : directivas para enlace de datos. stributos, propiedades eventos
+- `nuevo.component.ts` : modelo en clase controladora
 
 (https://scotch.io/tutorials/how-to-deal-with-different-form-controls-in-angular-2)
