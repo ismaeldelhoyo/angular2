@@ -27,7 +27,8 @@ export class NuevoComponent implements OnInit {
     this.movimiento = {
       fecha: new Date(Date.now()),
       importe: 0,
-      tipo: this.tipos[0].id
+      tipo: this.tipos[0].id,
+      empresa: 'Academia Binaria'
     }
     this.cambioTipo();
   }
