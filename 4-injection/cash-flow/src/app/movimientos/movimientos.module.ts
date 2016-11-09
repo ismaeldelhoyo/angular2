@@ -1,4 +1,6 @@
 // Importar el servicio DatosService desde el fichero
+// Se registrará como un provider 
+// Podrá ser inyectado en los componentes de este módulo
 import { DatosService } from './datos.service';
 
 import { FormsModule } from '@angular/forms';
