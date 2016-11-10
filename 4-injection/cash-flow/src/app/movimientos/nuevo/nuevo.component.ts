@@ -21,7 +21,7 @@ export class NuevoComponent implements OnInit {
 
   /** Al iniciarse el componente se cargan los datos*/
   ngOnInit() {
-    this.tipos = this.datosService.getTipos();
+    this.tipos = this.datosService.tipos;
     this.movimiento = this.datosService.getNuevoMovimiento();
     this.cambioTipo();
   }
@@ -29,7 +29,7 @@ export class NuevoComponent implements OnInit {
   cambioTipo() {
     this.categorias = this.datosService.getCategoriasPorTipo(this.movimiento.tipo);
     // Cambios en el tipo, crean cambios en la categoría
-    this.movimiento.categoria = this.datosService.getCategoriaBase(this.movimiento.tipo);
+    this.movimiento.categoria = this.datosService.getCategoriasPorTipo(this.movimiento.tipo)[0].id;
   }
   /** Guarda un movimiento en el almacén */
   guardarMovimiento() {

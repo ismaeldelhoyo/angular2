@@ -1,4 +1,3 @@
-import { MovimientosModule } from './../../../../../3-databinding/cash-flow/src/app/movimientos/movimientos.module';
 // Importación directa de tipos
 import { MaestroModel, MaestroTipoModel, MovimientoModel, Movimiento } from './datos.model';
 import { Injectable } from '@angular/core';
@@ -17,7 +16,7 @@ import { Subject } from 'rxjs/Subject';
 @Injectable()
 export class DatosService {
   /** Tipos de MovimientosModule. Es un arrya de datos maestros */
-  private tipos: MaestroModel[] = [
+  public tipos: MaestroModel[] = [
     { id: 1, text: "Ingreso" },
     { id: 2, text: "Gasto" }];
   /** Tipos de categorías. Es un arrya de datos maestros tipificados */
