@@ -1,4 +1,6 @@
 // Importar el servicio DatosService desde el fichero
+// Se registrará como un provider 
+// Podrá ser inyectado en los componentes de este módulo
 import { DatosService } from './datos.service';
 
 import { FormsModule } from '@angular/forms';
@@ -22,7 +24,8 @@ import { NuevoComponent } from './nuevo/nuevo.component';
     MovimientosComponent
   ], // exporta los componentes importables desde otros módulos
   providers: [
-    DatosService] // registro del servicio como un provvedor del módulo
+    DatosService
+  ] // registro del servicio como un proveedor del módulo
   
 })
 export class MovimientosModule { }
