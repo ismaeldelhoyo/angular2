@@ -10,4 +10,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   // propiedades para enlazar con la plantilla
   title = 'app works!';
+  public empresa:string='Hola CSA';
 }
